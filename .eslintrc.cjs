@@ -65,6 +65,7 @@ module.exports = {
         ignoreRegExpLiterals: true,
       },
     ],
+    "no-case-declarations": `off`,
     "no-confusing-arrow": `off`,
     "no-console": `off`,
     "no-continue": `off`,
