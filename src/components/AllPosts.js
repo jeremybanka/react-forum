@@ -3,7 +3,7 @@ import { shape, objectOf, func } from 'prop-types'
 import { IPost } from '../types/IPost'
 import Post from './Post'
 
-function Posts({ postsById, viewPost }) {
+function Posts({ postsById, viewPost, viewNewPostForm }) {
   return (
     <>
       {Object.values(postsById).map(post =>
@@ -18,6 +18,7 @@ function Posts({ postsById, viewPost }) {
           postScore={post.postScore}
         />
       )}
+      <button onClick={() => viewNewPostForm()}>Add a Post</button>
     </>
   )
 }
@@ -25,6 +26,7 @@ function Posts({ postsById, viewPost }) {
 Posts.propTypes = {
   postsById: objectOf(shape(IPost)).isRequired,
   viewPost: func.isRequired,
+  viewNewPostForm: func.isRequired,
 }
 
 export default Posts
