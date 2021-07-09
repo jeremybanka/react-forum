@@ -1,5 +1,6 @@
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react"
 import { func } from 'prop-types'
-import React from 'react'
 import { IPost } from "../types/IPost"
 
 function Post({
@@ -12,7 +13,14 @@ function Post({
   id,
 }) {
   return (
-    <div>
+    <div
+      css={css`
+        max-width: 400px;
+        height: 400px;
+        border: 1px solid white;
+        padding: 10px;
+      `}
+    >
       <h3>{title} - <em>{user}</em></h3>
       <p>{postBody}</p>
       <hr />

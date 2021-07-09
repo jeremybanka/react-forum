@@ -1,11 +1,18 @@
-import React from 'react'
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react"
 import { shape, objectOf, func } from 'prop-types'
 import { IPost } from '../types/IPost'
 import Post from './Post'
 
 function Posts({ postsById, viewPost, viewNewPostForm }) {
   return (
-    <>
+    <div
+      css={css`
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      `}
+    >
       {Object.values(postsById).map(post =>
         <Post
           key={post.id}
@@ -19,7 +26,7 @@ function Posts({ postsById, viewPost, viewNewPostForm }) {
         />
       )}
       <button onClick={() => viewNewPostForm()}>Add a Post</button>
-    </>
+    </div>
   )
 }
 

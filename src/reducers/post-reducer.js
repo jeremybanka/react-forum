@@ -20,12 +20,14 @@ const defaultState = {
 const postReducer = (state = defaultState, action) => {
   const { content, type } = action
   const id = nanoid()
+  const timeStamp = new Date()
+  const postScore = 1
   switch (type) {
     case ADD_POST:
       console.log(content)
       return {
         ...state,
-        [id]: { ...content, id },
+        [id]: { ...content, id, timeStamp, postScore },
       }
     case DELETE_POST:
       const newState = { ...state }

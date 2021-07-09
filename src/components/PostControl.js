@@ -26,6 +26,8 @@ class PostControl extends Component {
 
   viewNewPostForm = () => this.changeView(VIEWS.NEW_POST_FORM)
 
+  viewAllPosts = () => this.changeView(VIEWS.ALL_POSTS)
+
   addPost = (newPost = defaultPost) => {
     const { dispatch } = this.props
     const action = {
@@ -33,6 +35,7 @@ class PostControl extends Component {
       content: newPost,
     }
     dispatch(action)
+    this.viewAllPosts()
   }
 
   render() {
@@ -47,6 +50,7 @@ class PostControl extends Component {
       case VIEWS.NEW_POST_FORM: return (
         <NewPostForm
           addPost={this.addPost}
+          viewAllPosts={this.viewAllPosts}
         />
       )
       default:

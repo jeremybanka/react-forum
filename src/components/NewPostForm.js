@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function NewPostForm({ addPost }) {
+function NewPostForm({ addPost, viewAllPosts }) {
   function handleNewPostFormSubmission(e) {
     e.preventDefault()
     const { user, title, postBody } = e.target
@@ -35,8 +35,9 @@ function NewPostForm({ addPost }) {
           name='postBody'
           placeholder="What's on your mind?"
         />
-        <button type='submit'>Post</button>
+        <button type='submit'>✔Post</button>
       </form>
+      <button onClick={viewAllPosts}>Back Home</button>
     </>
   )
 }
